@@ -1,0 +1,32 @@
+﻿@model List<Room>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Room Type</th>
+        <th>Room Area</th>
+        <th>Room Price</th>
+        <th>Room Count</th>
+        <th>Room Image</th>
+        <th>Choose Rooms</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.RoomType</td>
+            <td>@item.RoomArea</td>
+            <td>@item.RoomPrice $</td>
+            <td>@item.RoomCount</td>
+            <td><img src="~/images/room_images/@item.RoomImage" style="width:100px; height:50px" alt="Room Image" /></td>
+            <td><a href="/BookNowPage/AddReservation/@item.Id" class="btn btn-warning">Choose Room</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,41 @@
+﻿@model Staff
+@{
+    ViewData["Title"] = "AddStaff";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminUILayout.cshtml";
+}
+
+<h1>Add Staff</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        @Html.Label("Staff Name")
+        <input type="text" asp-for="StaffName" class="form-control" />
+        <span asp-validation-for="StaffName" style="color:red"></span>
+        <br />
+    </div>
+    <div>
+        @Html.Label("Staff Surname")
+        <input type="text" asp-for="StaffSurname" class="form-control" />
+        <span asp-validation-for="StaffSurname" style="color:red"></span>
+        <br />
+    </div>
+    <div>
+        @Html.Label("Staff Job")
+        <input type="text" asp-for="StaffJob" class="form-control" />
+        <span asp-validation-for="StaffJob" style="color:red"></span>
+        <br />
+    </div>
+    <div>
+        @Html.Label("Staff Description")
+        <textarea asp-for="StaffDescription" class="form-control"></textarea>
+        <span asp-validation-for="StaffDescription" style="color:red"></span>
+        <br />
+    </div>
+    <div>
+        @Html.Label("Staff Image")
+        <input type="file" asp-for="StaffImageFile" class="form-control" />
+        <span asp-validation-for="StaffImageFile" style="color:red"></span>
+        <br />
+    </div>
+    <button class="btn btn-outline-success">Add Staff</button>
+</form>
